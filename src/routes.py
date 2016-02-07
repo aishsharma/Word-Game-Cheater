@@ -1,4 +1,4 @@
-from bottle import route, static_file, error, post, request
+from bottle import route, error, post, request
 from jinja2 import Environment, FileSystemLoader
 from database import word_matcher
 
