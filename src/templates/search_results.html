@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block results %}
+
+<h3>
+	I found the following possible words
+</h3>
+
+<ul class="list-group list-inline">
+	{% for word in words %}
+		<li class="list-group-item">
+			{{word}}
+		</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
