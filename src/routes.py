@@ -1,14 +1,16 @@
 from bottle import route, error, post, request
 from jinja2 import Environment, FileSystemLoader
 from database import word_matcher
+import os
 
 __author__ = "Aishwarya Sharma"
 
 
 # Specifies that our templates are located in the "templates" folder inside
 # the "src" python package
+path_to_templates = os.path.dirname(os.path.abspath(__file__)) + "/templates"
 template_env = Environment(
-    loader=FileSystemLoader('templates', followlinks=True))
+    loader=FileSystemLoader(path_to_templates, followlinks=True))
 
 
 # Web App Entry point. Returns index.html
