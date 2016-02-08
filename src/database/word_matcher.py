@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 __author__ = "Aishwarya Sharma"
 
@@ -10,13 +11,15 @@ def get_words_from_db(length):
     words = []
 
     try:
-        connection = sqlite3.connect("./database/words.db")
+        path_to_database = os.path.dirname(
+            os.path.abspath(__file__)) + "/words.db"
+        connection = sqlite3.connect(path_to_database)
         cursor = connection.execute(
             "select word from words where (length = {0})".format(length))
         for row in cursor:
             words.append(row[0])
     except:
-        pass
+        print("Database connection failed")
     finally:
         # Cleaning up the open connection
         if connection is not None:
