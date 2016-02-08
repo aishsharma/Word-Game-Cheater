@@ -25,7 +25,7 @@ def index():
 @post('/search')
 def search():
     try:
-        char_list = str(request.forms.get('charSet')).strip()
+        char_list = str(request.forms.get('charSet')).strip().lower()
         word_length = int(str(request.forms.get('wordLength')).strip())
     except ValueError:
         print("Had a value error")
